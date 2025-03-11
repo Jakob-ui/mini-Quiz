@@ -5,5 +5,5 @@ export interface Question {
   a2: string;
   a3: string;
   a4: string;
-  corret: number;
+  correct: number;
 }

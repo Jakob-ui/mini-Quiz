@@ -15,7 +15,7 @@ export class DataService {
       a2: "NewYork",
       a3: "Wien",
       a4: "Moskau",
-      corret: 1,
+      correct: 1,
     });
   }
 }
