@@ -2,11 +2,11 @@ import {
   findClosestIonContent,
   scrollToTop
 } from "./chunk-SWBNJOIY.js";
+import "./chunk-VEV5BJ2D.js";
 import {
   readTask,
   writeTask
 } from "./chunk-XN5KYYNJ.js";
-import "./chunk-VEV5BJ2D.js";
 import {
   componentOnReady
 } from "./chunk-OKPK4C3D.js";
@@ -48,4 +48,4 @@ export {
    * (C) Ionic http://ionicframework.com - MIT License
    *)
 */
-//# sourceMappingURL=status-tap-4RSTL4KD.js.map
+//# sourceMappingURL=status-tap-X3P2BMFC.js.map
