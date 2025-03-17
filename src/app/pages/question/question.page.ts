@@ -11,6 +11,7 @@ import {
   IonList,
   IonItem,
   IonLabel,
+  IonInput,
 } from "@ionic/angular/standalone";
 import { DataService } from "src/app/services/data.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -22,6 +23,7 @@ import { Question } from "src/app/services/question";
   styleUrls: ["./question.page.scss"],
   standalone: true,
   imports: [
+    IonInput,
     IonLabel,
     IonItem,
     IonList,
@@ -51,5 +53,13 @@ export class QuestionPage implements OnInit {
     else
       this.question =
         this.data.getQuestion(questionId) || this.data.getNewQuestion();
+    console.log(this.question);
+  }
+
+  ionViewWillLeave() {
+    if (this.question.title.length >= 3 && this.question.id == "0") {
+      this.data.addQuestion(this.question);
+    }
+    this.data.saveQuiz();
   }
 }

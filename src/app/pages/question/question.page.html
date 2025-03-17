@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Question</ion-title>
-        <ion-buttons slot="start">
+    <ion-buttons slot="start">
       <ion-back-button defaultHref="question-list"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
@@ -10,8 +10,58 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item>
-      <ion-label position="fixed">Fragen-iD:</ion-label>
-      <ion-label position="fixed">{{question.id}}</ion-label>
+      <ion-input
+        label="Frage:"
+        labelPlacement="fixed"
+        type="Text"
+        [(ngModel)]="question.title"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Antwort 1:"
+        labelPlacement="fixed"
+        type="Text"
+        [(ngModel)]="question.a1"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Antwort 2:"
+        labelPlacement="fixed"
+        type="Text"
+        [(ngModel)]="question.a2"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Antwort 3:"
+        labelPlacement="fixed"
+        type="Text"
+        [(ngModel)]="question.a3"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Antwort 4:"
+        labelPlacement="fixed"
+        type="Text"
+        [(ngModel)]="question.a4"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Korrekt:"
+        labelPlacement="fixed"
+        type="Text"
+        [(ngModel)]="question.correct"
+      >
+      </ion-input>
     </ion-item>
   </ion-list>
 </ion-content>

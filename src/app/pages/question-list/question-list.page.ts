@@ -19,6 +19,7 @@ import {
 } from "@ionic/angular/standalone";
 import { DataService } from "src/app/services/data.service";
 import { Router } from "@angular/router";
+import { Question } from "src/app/services/question";
 
 @Component({
   selector: "app-question-list",
@@ -52,7 +53,7 @@ export class QuestionListPage implements OnInit {
   show(qid: string) {
     this.router.navigate(["/question", qid]);
   }
-  delete(qid: string) {
-    //this.data.deleteQuestion(qid);
+  delete(q: Question) {
+    this.data.deleteQuestion(q);
   }
 }

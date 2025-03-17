@@ -1,0 +1,24 @@
+{
+    "id": "initialQuiz",
+    "quizNam": "Städtequiz",
+    "questions": [
+        {
+        "id": "1",
+      "title": "Was ist die Hauptstad Frankreichs",
+      "a1": "Paris",
+      "a2": "NewYork",
+      "a3": "Wien",
+      "a4": "Moskau",
+      "correct": 1
+        },
+        {
+        "id": "1",
+      "title": "Was ist die Hauptstad Österreichs",
+      "a1": "Wien",
+      "a2": "St.pölten",
+      "a3": "Linz",
+      "a4": "Innsbruck",
+      "correct": 2
+        }
+    ]
+}
