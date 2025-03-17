@@ -1,13 +1,15 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { Quiz } from "./quiz";
 import { Question } from "./question";
 import { v4 as uuidv4 } from "uuid";
 import { Preferences } from "@capacitor/preferences";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",
 })
 export class DataService {
+  private http: HttpClient = inject(HttpClient);
   public currentQuiz: Quiz = { id: "", quizName: "newQuiz", questions: [] };
 
   constructor() {
@@ -49,6 +51,12 @@ export class DataService {
     } catch (e) {
       console.log(e);
     }
+  }
+  public loadQuizFromJson() {
+    this.http.get("assets/data.json").subscribe((data) => {
+      if (data) this.currentQuiz = data as Quiz;
+      else console.log("och neee", data);
+    });
   }
 
   public saveQuiz() {
