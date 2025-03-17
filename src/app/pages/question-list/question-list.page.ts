@@ -49,10 +49,10 @@ export class QuestionListPage implements OnInit {
   private router = inject(Router);
   constructor() {}
   ngOnInit() {}
-  show(qid: number) {
+  show(qid: string) {
     this.router.navigate(["/question", qid]);
   }
-  delete(qid: number) {
+  delete(qid: string) {
     //this.data.deleteQuestion(qid);
   }
 }

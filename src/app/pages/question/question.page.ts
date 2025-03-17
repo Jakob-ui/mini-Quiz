@@ -44,24 +44,12 @@ export class QuestionPage implements OnInit {
 
   ngOnInit() {
     let questionId = this.route.snapshot.paramMap.get("id");
+    if (!questionId) {
+      questionId = "0";
+    }
     if (questionId == "0") this.question = this.data.getNewQuestion();
     else
       this.question =
         this.data.getQuestion(questionId) || this.data.getNewQuestion();
-  }
-
-  public getNewQuestion(): Question {
-    return {
-      id: 0,
-      title: "",
-      a1: "",
-      a2: "",
-      a3: "",
-      a4: "",
-      correct: 1,
-    };
-  }
-  public getQuestion(qid: string): Question | undefined {
-    return this.currentQuiz.question.find((q) => q.id === qid);
   }
 }
