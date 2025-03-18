@@ -13,18 +13,28 @@ export class DataService {
   public currentQuiz: Quiz = { id: "", quizName: "newQuiz", questions: [] };
 
   constructor() {
-    this.loadQuiz();
-    console.log();
-    /*
-    this.currentQuiz.questions.push({
-      id: "1",
-      title: "Was ist die Hauptstad Frankreichs",
-      a1: "Paris",
-      a2: "NewYork",
-      a3: "Wien",
-      a4: "Moskau",
-      correct: 1,
-    });*/
+    /*this.currentQuiz.questions.push({
+      id: '1',
+      title: 'What is the capital of France?',
+      a1: 'Paris',
+      a2: 'London',
+      a3: 'Berlin',
+      a4: 'Madrid',
+      correct: 1
+    })*/
+    //this.loadQuiz();
+    this.loadQuizFromJSON();
+    console.log("Hallo3");
+  }
+
+  loadQuizFromJSON() {
+    this.http
+      .get("https://www.schmiedl.co.at/json_cors/data.json")
+      .subscribe((data) => {
+        if (data && data.hasOwnProperty("quizName"))
+          this.currentQuiz = data as Quiz;
+        else console.log("oje: ", data);
+      });
   }
   /*public loadQuiz() {
     let returnPromise = Preferences.get({
@@ -42,16 +52,19 @@ export class DataService {
       });
     console.log("ohne Promise");
   }*/
+
   public async loadQuiz() {
     try {
-      let q = await Preferences.get({
-        key: "MeintollesQuiz2025",
-      });
+      let q = await Preferences.get({ key: "MeinQuiz" });
+      console.log("Hallo1");
       if (q.value) this.currentQuiz = JSON.parse(q.value) as Quiz;
+      console.log(q.value);
     } catch (e) {
       console.log(e);
     }
+    console.log("Hallo2");
   }
+
   public loadQuizFromJson() {
     this.http.get("assets/data.json").subscribe((data) => {
       if (data) this.currentQuiz = data as Quiz;
