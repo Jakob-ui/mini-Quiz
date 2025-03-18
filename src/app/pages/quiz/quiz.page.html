@@ -33,6 +33,12 @@
       <ion-button *ngIf="isAnswerGiven" (click)="loadRandomQuestion()"
         >Next Question</ion-button
       >
+      <p
+        *ngIf="answerFeedback"
+        [ngClass]="{'success': isAnswerCorrect, 'fail': !isAnswerCorrect}"
+      >
+        {{ answerFeedback }}
+      </p>
     </div>
     <div *ngIf="!randomQuestion">
       <p>No question available.</p>

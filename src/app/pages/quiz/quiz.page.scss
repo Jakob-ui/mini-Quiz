@@ -10,7 +10,7 @@
   padding: 20px;
   border: 2px solid #1c1c1c; 
   border-radius: 15px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -56,4 +56,25 @@
   margin-top: 16px;
   width: 80%; 
   max-width: 300px; 
+}
+
+.feedback {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 16px;
+  color: #007bff;
+}
+
+.success{
+color: #c1ff4d; 
+font-size: 18px;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+.fail{
+  color: #ff4d4d; 
+font-size: 18px;
+  font-weight: bold;
+  margin-top: 16px;
 }

@@ -43,6 +43,8 @@ export class QuizPage implements OnInit {
   randomQuestion: Question | undefined;
   selectedAnswer: number | undefined;
   isAnswerGiven: boolean | undefined;
+  answerFeedback: string | undefined;
+  isAnswerCorrect: boolean | undefined;
   correctAnswersCount: number = 0;
   quizCompleted: boolean = false;
 
@@ -56,11 +58,12 @@ export class QuizPage implements OnInit {
   loadRandomQuestion() {
     const hasMoreQuestions = this.dataService.loadrandomQuiz();
     if (!hasMoreQuestions) {
-      this.quizCompleted = true; // Setzt den Status auf abgeschlossen
+      this.quizCompleted = true;
       return;
     }
     this.randomQuestion = this.dataService.randomQuestion;
-    this.isAnswerGiven = undefined; // Reset der Antwort
+    this.isAnswerGiven = undefined;
+    this.answerFeedback = undefined;
   }
   resetQuiz() {
     this.dataService.currentIndex = 0;
@@ -85,14 +88,16 @@ export class QuizPage implements OnInit {
     if (this.randomQuestion && this.selectedAnswer !== undefined) {
       this.isAnswerGiven = true;
       if (this.selectedAnswer == this.randomQuestion.correct) {
-        console.log("Correct answer!");
+        this.answerFeedback = "Richtig!";
+        this.isAnswerCorrect = true;
         this.correctAnswersCount++;
       } else {
-        console.log("Wrong answer!");
+        this.answerFeedback = "Falsch!";
+        this.isAnswerCorrect = false;
       }
     } else {
-      console.log("No question or answer selected.");
-      this.isAnswerGiven = undefined;
+      this.answerFeedback = "Bitte wähle eine Antwort aus.";
+      this.isAnswerCorrect = undefined;
     }
   }
 }
