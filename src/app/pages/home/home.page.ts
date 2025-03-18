@@ -5,10 +5,10 @@ import { Router } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 0;
 import {
-  IonHeader,
-  IonToolbar,
-  IonTitle,
   IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
   IonButton,
 } from "@ionic/angular/standalone";
 import { DataService } from "src/app/services/data.service";
@@ -33,5 +33,8 @@ export class HomePage {
   constructor() {}
   showList() {
     this.router.navigate(["/question-list"]);
+  }
+  showQuiz() {
+    this.router.navigate(["/quiz"]);
   }
 }

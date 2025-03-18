@@ -1,14 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Das Mini-Quiz
-    </ion-title>
+    <ion-title> Das Mini-Quiz </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<div>
-  <p>Anzahl der Fragen: {{data.currentQuiz.questions.length}}</p>
-  <ion-button shape="round" color="primarya" fill="outline" (click)="showList()"></ion-button>
-</div>
+  <div>
+    <p>Anzahl der Fragen: {{data.currentQuiz.questions.length}}</p>
+    <ion-button
+      shape="round"
+      color="primarya"
+      fill="outline"
+      (click)="showList()"
+      >Zeige die Fragen an</ion-button
+    >
+    <ion-button
+      shape="round"
+      color="primarya"
+      fill="outline"
+      (click)="showQuiz()"
+      >Starte ein neues Quiz</ion-button
+    >
+  </div>
 </ion-content>

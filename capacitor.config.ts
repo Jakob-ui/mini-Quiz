@@ -1,9 +1,9 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'mini-quiz',
-  webDir: 'www'
+  appId: "at.ac.fhstp.jakob.miniquiz.j202503",
+  appName: "mini-quiz",
+  webDir: "www",
 };
 
 export default config;
