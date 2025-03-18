@@ -34,7 +34,7 @@ export class HomePage {
   showList() {
     this.router.navigate(["/question-list"]);
   }
-  showQuiz() {
+  startQuiz() {
     this.router.navigate(["/quiz"]);
   }
 }

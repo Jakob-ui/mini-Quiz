@@ -1,0 +1,59 @@
+.Question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 10%;
+  width: 60%; 
+  max-width: 500px; 
+  padding: 20px;
+  border: 2px solid #1c1c1c; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  text-align: center;
+}
+
+.Question h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff; 
+  margin-bottom: 16px; 
+}
+
+.Question ion-radio-group {
+  width: 100%; 
+  max-width: 400px;
+  margin: 16px 0;
+  padding: 10px;
+  border: 1px solid #212121;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Question ion-radio {
+  --color-checked: #007bff;
+  --color: #666;
+  --size: 20px; 
+  padding: 10px;
+}
+
+.Question ion-label {
+  font-size: 18px; 
+  color: #b8b8b8;
+  padding-left: 10px;
+}
+
+.Question ion-item {
+  --inner-padding-start: 0; 
+  --inner-padding-end: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  margin-bottom: 8px; 
+}
+
+.Question ion-button {
+  margin-top: 16px;
+  width: 80%; 
+  max-width: 300px; 
+}

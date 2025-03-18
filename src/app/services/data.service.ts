@@ -11,6 +11,8 @@ import { HttpClient } from "@angular/common/http";
 export class DataService {
   private http: HttpClient = inject(HttpClient);
   public currentQuiz: Quiz = { id: "", quizName: "newQuiz", questions: [] };
+  public randomQuestion: Question | undefined;
+  public currentIndex: number = 0;
 
   constructor() {
     /*this.currentQuiz.questions.push({
@@ -22,11 +24,11 @@ export class DataService {
       a4: 'Madrid',
       correct: 1
     })*/
-    //this.loadQuiz();
-    this.loadQuizFromJSON();
+    this.loadQuiz();
+    //this.loadQuizFromMyJson();
     console.log("Hallo3");
   }
-
+  /*
   loadQuizFromJSON() {
     this.http
       .get("https://www.schmiedl.co.at/json_cors/data.json")
@@ -35,7 +37,7 @@ export class DataService {
           this.currentQuiz = data as Quiz;
         else console.log("oje: ", data);
       });
-  }
+  }/*
   /*public loadQuiz() {
     let returnPromise = Preferences.get({
       key: "MeintollesQuiz2025",
@@ -65,7 +67,31 @@ export class DataService {
     console.log("Hallo2");
   }
 
-  public loadQuizFromJson() {
+  private shuffleArray(array: any[]): any[] {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  public loadrandomQuiz(): boolean {
+    if (this.currentIndex >= this.currentQuiz.questions.length) {
+      return false;
+    }
+
+    if (this.currentIndex === 0) {
+      this.currentQuiz.questions = this.shuffleArray(
+        this.currentQuiz.questions
+      );
+    }
+
+    this.randomQuestion = this.currentQuiz.questions[this.currentIndex];
+    this.currentIndex++;
+    return true;
+  }
+
+  public loadQuizFromMyJson() {
     this.http.get("assets/data.json").subscribe((data) => {
       if (data) this.currentQuiz = data as Quiz;
       else console.log("och neee", data);
@@ -74,7 +100,7 @@ export class DataService {
 
   public saveQuiz() {
     Preferences.set({
-      key: "MeintollesQuiz2025",
+      key: "MeinQuiz",
       value: JSON.stringify(this.currentQuiz),
     });
   }

@@ -1,13 +1,46 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>Quiz</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Quiz</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div *ngIf="!quizCompleted">
+    <div class="Question" *ngIf="randomQuestion">
+      <h2>{{ randomQuestion.title }}</h2>
+      <ion-radio-group [(ngModel)]="selectedAnswer">
+        <ion-item>
+          <ion-label>{{ randomQuestion.a1 }}</ion-label>
+          <ion-radio labelPlacement="end" value="1"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ randomQuestion.a2 }}</ion-label>
+          <ion-radio labelPlacement="end" value="2"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ randomQuestion.a3 }}</ion-label>
+          <ion-radio labelPlacement="end" value="3"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ randomQuestion.a4 }}</ion-label>
+          <ion-radio labelPlacement="end" value="4"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <ion-button (click)="check()">Check Answer</ion-button>
+      <ion-button *ngIf="isAnswerGiven" (click)="loadRandomQuestion()"
+        >Next Question</ion-button
+      >
+    </div>
+    <div *ngIf="!randomQuestion">
+      <p>No question available.</p>
+    </div>
+  </div>
+  <div *ngIf="quizCompleted">
+    <h2>Quiz beendet!</h2>
+    <p>Du hast {{ correctAnswersCount }} Fragen richtig beantwortet.</p>
+    <ion-button (click)="home()">Zurück zur Startseite</ion-button>
+  </div>
 </ion-content>
